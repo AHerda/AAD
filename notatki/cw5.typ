@@ -1,7 +1,7 @@
 #import "template.typ": *
 
 #show: project.with(
-  title: [Algorytmiczna Analiza Danych\ Ćwiczenia 4],
+  title: [Algorytmiczna Analiza Danych\ Ćwiczenia 5],
   authors: ((name: "Adrian Herda", affiliation: "Politechnika Wrocławska"),),
   date: datetime.today().display(),
 )
