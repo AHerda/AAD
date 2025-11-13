@@ -117,3 +117,42 @@ Nie, estymator jest obciążony.
 ]
 
 = Zadanie 23
+
+== a) $p=1$
+
+Ułamek próby który użyjemy $0.10 / 1 = 0.1$
+
+== b) $p=2$
+
+Teraz chcemy wykorzystać kwadrat o długości $X_1 = 0.1$ oraz szerokości $X_2 = 0.1$\
+Ułamek próby który użyjemy: $(0.1 dot 0.1) / 1 = 0.01$
+
+== c) $p=100$
+
+Teraz chcemy wykorzystać hiperkostke o długości boku $0.1$\
+Ułamek próby który użyjemy: $0.1^100 / 1 = 10^(-100) approx 0$
+
+== d)
+
+Im większe $p$ tym mniej punktów leży w odległości $0.1$ od testowego, więc metody oparte na lokalności się trochę psują, mając mało danych do porządnego przewidywania. Rośnie wariancja a żeby ją kontrolować musimy zwiększać K lub zwiększać okno szukania co psuje założenie lokalności.
+
+== e)
+
+=== Wzór
+Niech $w$ to długosć krawędzi hiperkostki wewnętrznej, zawierającej $approx 10%$ obesrwacji treningowych
+$ 0.1 = w^p\ w = root(p, 0.1) $
+
+=== Wyniki
+
+#align(center)[#table(
+  columns: 2,
+  inset: 10pt,
+  align: horizon+center,
+  table.header([$p$], [$w$]),
+  $1$, $0.1$,
+  $2$, $sqrt(0.1) approx 0.31$,
+  $100$, $root(100, 0.1) approx 0.977$,
+)]
+
+Prawie cała objętość hiperkostki leży w jej brzegach.
+Nie da się być lokalnym i mieć wystarczająco dużo sąsiadów #sym.arrow Klątwa wielowymiarowości
