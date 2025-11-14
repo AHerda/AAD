@@ -3,7 +3,7 @@
 #show: project.with(
   title: [Algorytmiczna Analiza Danych\ Ćwiczenia 6],
   authors: ((name: "Adrian Herda", affiliation: "Politechnika Wrocławska"),),
-  date: datetime.today().display("[day].[Month].[year]"),
+  date: [13.11.25],
 )
 
 = Zadanie 19
