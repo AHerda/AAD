@@ -5,7 +5,7 @@
 #show: project.with(
   title: [Algorytmiczna Analiza Danych\ Ćwiczenia 3],
   authors: ((name: "Adrian Herda", affiliation: "Politechnika Wrocławska"),),
-  date: datetime.today().display()
+  date: "17 października 2025 r.",
 )
 
 = Zadanie 8 - _MSE_ jako suma kwadratu _bias_'u wariancji funckji przybliżającej i wariancji szumu
@@ -90,7 +90,7 @@ Udowodnij że:
 #proof[
   Różniczkujemy i przyrównujemy do zera:
   $
-    partial/(partial hat(beta)_0) "MSE" &= -2/n sum_(i=1)^n (y_i - (hat(beta)_0 + hat(beta)_1 x_i)) = 0 
+    partial/(partial hat(beta)_0) "MSE" &= -2/n sum_(i=1)^n (y_i - (hat(beta)_0 + hat(beta)_1 x_i)) = 0
   $ <beta0>
   $
     partial/(partial hat(beta)_1) "MSE" &= -2/n sum_(i=1)^n x_i (y_i - (hat(beta)_0 + hat(beta)_1 x_i)) = 0
@@ -116,7 +116,7 @@ Udowodnij że:
     hat(beta)_1 (sum_(i=1)^n x_i^2 - n dash(x)^2) &= sum_(i=1)^n x_i y_i - n dash(y) dash(x) \
 
     hat(beta)_1 (sum_(i=1)^n x_i^2 - 2 n dash(x)^2 + n dash(x)^2) &= sum_(i=1)^n x_i y_i - n dash(y) dash(x) + n dash(y) dash(x) - n dash(y) dash(x) \
-    
+
     hat(beta)_1 (sum_(i=1)^n x_i^2 - sum_(i=1)^n 2 dash(x) x_i + sum_(i=1)^n dash(x)^2) &= sum_(i=1)^n x_i y_i - sum_(i=1)^n dash(y) x_i + sum_(i=1)^n dash(y) dash(x) - sum_(i=1)^n dash(x) y_i \
 
     hat(beta)_1 sum_(i=1)^n (x_i^2 - 2 dash(x) x_i + dash(x)^2) &= sum_(i=1)^n (x_i y_i - dash(y) x_i) + (dash(y) dash(x) - dash(x) y_i) \

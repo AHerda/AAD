@@ -8,7 +8,7 @@
   authors: (
     (name: "Adrian Herda", affiliation: "Informatyka Algorytmiczna, Politechnika Wrocławska"),
   ),
-  date: datetime.today().display(),
+  date: "14 października 2025 r.",
 )
 
 = Zadanie 1
@@ -64,7 +64,7 @@ Potrzebna jest duża ilość obserwacji ze względu na ilość rodzajów wina or
 
 Potrzebna jest duża ilość danych ponieważ ludzkie emocje są bardzo skomplikowane i często niezrozumiałe nawet dla nas samych. Nawet do setek tysięcy
 
-== Regresja 
+== Regresja
 
 === Przykład 1 - Szacowanie wieku człowieka na podstawie zdjęcia (np takiego do ID)
 - Predyktory:
@@ -135,12 +135,12 @@ Nie wymaga założeń co do rozkładu danych . Model uczy się bardziej elastycz
 
 #table(columns: (auto, 1fr, 1fr),
   table.header([], [Uczenie parametryczne], [Uczenie nieparamteryczne]),
-  [Zalety], 
+  [Zalety],
   [
     - mały wariancja
     - łatwość analizy i interpretacji modelu
     - niski koszt obliczeń
-  ], 
+  ],
   [
     - mały bias
     - duża elastyczność i dopasowanie do danych
@@ -264,13 +264,13 @@ preferowany może być mniej elastyczny model?
 
 #table(columns: (auto, 1fr, 1fr),
   table.header([], [Model mniej elastyczny], [Model bardziej elastyczny]),
-  [Zalety], 
+  [Zalety],
   [
     - stabilny, z mała wariancją
     - łatwiejszy do interpretacji
     - bardziej odporny na szum
     - sprawdza się lepiej dla małych $n$ względem $p$
-  ], 
+  ],
   [
     - niski bias
     - świetny dla dużych $n$

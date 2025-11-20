@@ -1,0 +1,15 @@
+#import "template.typ": *
+
+#show: project.with(
+  title: [Algorytmiczna Analiza Danych\ Wszystkie Ćwiczenia],
+  authors: ((name: "Adrian Herda", affiliation: "Politechnika Wrocławska"),),
+  date: datetime.today().display(),
+  content: true,
+)
+
+#include "cw2.typ"
+#include "cw3.typ"
+#include "cw4.typ"
+#include "cw5.typ"
+#include "cw6.typ"
+#include "cw7.typ"

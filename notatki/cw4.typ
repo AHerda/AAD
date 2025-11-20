@@ -3,7 +3,7 @@
 #show: project.with(
   title: [Algorytmiczna Analiza Danych\ Ćwiczenia 4],
   authors: ((name: "Adrian Herda", affiliation: "Politechnika Wrocławska"),),
-  date: datetime.today().display(),
+  date: "24 października 2025 r.",
 )
 
 = Zadanie 13 - Prawdopodobieństwo prawdziwej wartości w przedziale
@@ -12,7 +12,7 @@ Jako że $e_i ~ cal(N)(0, sigma^2)$ oraz są niezależne, to zgodnie z własnoś
 
 == Reguła trzech sigm
 
-Reguła trzech sigm mówi, że w rozkładzie normalnym ok. $99.7%$ masy leży w przedziale $EE[X] plus.minus 3 sigma_X$ dla każdej zmiennej losowej $X ~ cal(N)(EE[X], sigma_X)$. Dla $EE[X] plus.minus 2 sigma_X$ mamy ok. $95%$. 
+Reguła trzech sigm mówi, że w rozkładzie normalnym ok. $99.7%$ masy leży w przedziale $EE[X] plus.minus 3 sigma_X$ dla każdej zmiennej losowej $X ~ cal(N)(EE[X], sigma_X)$. Dla $EE[X] plus.minus 2 sigma_X$ mamy ok. $95%$.
 
 To tylko krótkie heurystyczne odwołanie do „regułki $68 - 95 - 99.7$” dla rozkładu normalnego ($1sigma approx 68%, space 2sigma approx 95%, space 3sigma approx 99.7%$).
 

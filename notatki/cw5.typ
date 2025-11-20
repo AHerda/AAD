@@ -3,7 +3,7 @@
 #show: project.with(
   title: [Algorytmiczna Analiza Danych\ Ćwiczenia 5],
   authors: ((name: "Adrian Herda", affiliation: "Politechnika Wrocławska"),),
-  date: datetime.today().display(),
+  date: "7 listopada 2025 r.",
 )
 
 = Zadanie 15 - Korelacja

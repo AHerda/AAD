@@ -3,7 +3,7 @@
 #show: project.with(
   title: [Algorytmiczna Analiza Danych\ Ćwiczenia 6],
   authors: ((name: "Adrian Herda", affiliation: "Politechnika Wrocławska"),),
-  date: [13.11.25],
+  date: [14 listopada 2025 r.],
 )
 
 = Zadanie 19
@@ -68,7 +68,7 @@ Wskaż intuicyjnie, dlaczego ten estymator ma sens.
 == Rozwiązanie
 
 $ f(x;lambda) = lambda e^(-lambda x) $
-$ 
+$
   L(lambda) &= product_(i=1)^n f(x_i;lambda)\
   &= lambda^n exp(-lambda n x_i)\
   &= lambda^n exp(-lambda sum_(i=1)^n x_i)\
