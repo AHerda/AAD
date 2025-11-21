@@ -12,7 +12,9 @@
 ) = {
   // Set the document's basic properties.
   set document(author: authors.map(a => a.name), title: title)
-  set math.equation(numbering: "(1.1)")
+  set math.equation(numbering: n => {
+    numbering("(1.1)", counter(heading).get().first(), n)
+  })
   set terms(separator: " - ")
   set page(
     numbering: "1",
@@ -84,9 +86,19 @@
 }
 
 #let c = counter("theorem")
-#show heading.where(level: 1): it => [
-  #context c.update(i => 0)
-  #it
+#let d = counter("definition")
+#show heading.where(level: 1): it => {
+  counter(math.equation).update(0)
+  context c.update(i => 0)
+  context d.update(i => 0)
+  it
+}
+#let definition(body) = block[
+  #v(1em)
+  #d.step()
+  *Def. #context counter(heading).display().replace(regex("\..*$"), "").#context{d.display()}.*
+  #body
+  #v(1em)
 ]
 #let theorem(body) = block[
   #v(1em)
@@ -99,4 +111,14 @@
 #let proof(body) = block[
   _Proof._ #body
   #align(right)[#sym.qed]
+]
+
+#let gcell(a,b) = box(width: 2.5cm, height: 1.7cm,{
+  place(bottom + left, dx: 3pt, dy: -5pt, [#a]);
+  place(top + right, dx:-3pt, dy: 5pt, [#b]);
+  line(start: (0%,0%), end: (100%, 100%))
+});
+
+#let fact(body) = block[
+  *_Fakt_* #body
 ]

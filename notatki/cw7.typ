@@ -11,10 +11,10 @@
 == Oznaczenia
 
 Stosujemy następujące oznaczenia w macierzy pomyłek:
-- *TP* (True Positive): Prawdziwie pozytywne.
-- *TN* (True Negative): Prawdziwie negatywne.
-- *FP* (False Positive): Fałszywie pozytywne (błąd I rodzaju).
-- *FN* (False Negative): Fałszywie negatywne (błąd II rodzaju).
+- / TP (True Positive): Prawdziwie pozytywne.
+- / TN (True Negative): Prawdziwie negatywne.
+- / FP (False Positive): Fałszywie pozytywne (błąd I rodzaju).
+- / FN (False Negative): Fałszywie negatywne (błąd II rodzaju).
 
 == a) Metryki: Accuracy, Precision, Recall oraz F1
 
