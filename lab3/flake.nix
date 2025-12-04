@@ -20,11 +20,8 @@
             p.matplotlib
             p.numpy
             p.pandas
-            p.patsy
-            p.nbformat
-            p.jupyter
-            p.statsmodels
             p.scikit-learn
+            p.seaborn
           ]))
         ];
       };
