@@ -18,7 +18,7 @@ class CustomApriori:
         self.min_confidence = min_confidence
         self.with_pruning = with_pruning
         self.stats = {
-            'total_candidates': 0,  # Łączna liczba wygenerowanych kandydatów (po pruning jeśli włączony)
+            'total_candidates': 0, 
             'frequent_itemsets_count': 0,
             'max_itemset_size': 0,
         }
@@ -127,8 +127,8 @@ transactions_sets = [
 ]
 transactions = [list(s) for s in transactions_sets]
 
-min_support = 0.1  # 10%
-min_confidence = 0.5  # 50% - niska ufność
+min_support = 0.1
+min_confidence = 0.5
 
 apriori = CustomApriori(min_support=min_support, min_confidence=min_confidence)
 
@@ -167,7 +167,6 @@ for i, rule in enumerate(rules[:10], 1):
     cons = ", ".join(rule['consequent'])
     rule_str = f"{ant} -> {cons}"
 
-    # Przycinanie zbyt długich reguł, żeby nie psuły tabeli
     if len(rule_str) > 38:
         rule_str = rule_str[:35] + "..."
 
@@ -319,7 +318,7 @@ for s in support_levels:
 with_df = pd.DataFrame(res_w_pruning, columns=['support', 'time', 'total_candidates', 'frequent_count', 'max_k'])
 without_df = pd.DataFrame(res_wo_pruning, columns=['support', 'time', 'total_candidates', 'frequent_count', 'max_k'])
 
-# Generowanie wykresów zbiorczych
+# G===== Wykresy =====
 fig_c, axs = plt.subplots(2, 2, figsize=(14, 10))
 fig_c.suptitle('Analiza algorytmu Apriori - Wpływ Supportu', fontsize=16)
 

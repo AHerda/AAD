@@ -10,7 +10,6 @@ from sklearn.ensemble import IsolationForest
 from sklearn.metrics import silhouette_score, confusion_matrix, silhouette_score, adjusted_rand_score, normalized_mutual_info_score
 from scipy.cluster.hierarchy import dendrogram, linkage
 
-# --- Ładowanie i przygotowanie danych ---
 data = load_wine()
 
 X = pd.DataFrame(data.data, columns=data.feature_names)
@@ -26,7 +25,6 @@ print(f"Liczba klas (etykiet): {len(np.unique(y_true))}")
 print(f"Rozkład klas: {np.bincount(y_true)}")
 print(f"\nCechy: {feature_names}")
 
-# Funkcja pomocnicza: Purity Score
 def purity_score(y_true, y_pred):
     cm = confusion_matrix(y_true, y_pred)
     return np.sum(np.amax(cm, axis=0)) / np.sum(cm)
@@ -61,7 +59,7 @@ for k in k_values:
         cluster_outliers_per_class.append(outliers_in_class)
     cluster_outliers_counts.append(cluster_outliers_per_class)
 
-# Wykresy dla podpunktu A
+# Wykresy
 fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(15, 6))
 
 # Wykres 1: Elbow Method & Purity
@@ -93,17 +91,16 @@ ax2.grid(True, alpha=0.3)
 plt.tight_layout()
 plt.savefig("plots/ex17_elbow_purity_anomalies.png")
 
-# Wybór optymalnego k (wiemy, że to 3)
 best_k = 3
 print(f"\nAnaliza dla wybranego k={best_k}:")
 
-# --- Podpunkt B: Porównanie Oryginał vs PCA ---
+# --- Podpunkt B ---
 # 1. Oryginał
 kmeans_orig = KMeans(n_clusters=best_k, random_state=42, n_init=10).fit(X_scaled)
 sil_orig = silhouette_score(X_scaled, kmeans_orig.labels_)
 pur_orig = purity_score(y_true, kmeans_orig.labels_)
 
-# 2. PCA (redukcja do 2 wymiarów)
+# 2. PCA
 best_k = 3
 pca = PCA(n_components=2)
 X_pca = pca.fit_transform(X_scaled)
@@ -119,13 +116,12 @@ for name, data_in in datasets.items():
     km = KMeans(n_clusters=best_k, random_state=42, n_init=10)
     labels = km.fit_predict(data_in)
 
-    # Obliczanie metryk
     metrics = {
         'Dataset': name,
         'Purity': purity_score(y_true, labels),
-        'Silhouette': silhouette_score(data_in, labels), # Wyżej = lepiej (-1 do 1)
-        'ARI': adjusted_rand_score(y_true, labels), # Wyżej = lepiej (korekta losowości)
-        'NMI': normalized_mutual_info_score(y_true, labels), # Wyżej = lepiej
+        'Silhouette': silhouette_score(data_in, labels),
+        'ARI': adjusted_rand_score(y_true, labels),
+        'NMI': normalized_mutual_info_score(y_true, labels),
     }
     results.append(metrics)
 
@@ -133,9 +129,7 @@ df_results = pd.DataFrame(results).set_index('Dataset').T
 print("\n--- Tabela Porównawcza ---")
 print(df_results.round(3))
 
-# --- Podpunkt C: Cechy kluczowe (Heatmapa i Biplot) ---
-# Dendrogram + Heatmapa
-# Bierzemy próbkę losową dla czytelności
+# --- Podpunkt C ---
 sample_idx = np.random.choice(X_scaled.shape[0], 40, replace=False)
 sns.clustermap(X.iloc[sample_idx], standard_scale=1, method='ward', cmap='viridis', figsize=(10, 10))
 plt.title('Heatmapa z Dendrogramem (Próbka)')
@@ -160,7 +154,7 @@ def biplot(score, coeff, labels=None):
     scatter = ax.scatter(xs * scalex, ys * scaley, c=labels_pca, cmap='viridis')
     ax.legend(*scatter.legend_elements(), title="Klastry")
 
-    # Wektory cech
+    # Wektory
     for i in range(n):
         plt.arrow(0, 0, coeff[i,0], coeff[i,1], color='r', alpha=0.5)
         if labels is None:
